@@ -1,0 +1,134 @@
+სალამი ყველას..
+აქ არის ჩამოთვლილი ყველა wordpress კოდი რომელსაც გამოვიყენებთ და ასევე დაგჭირდებათ სხვა პროექტებისთვის.
+
+
+Wordpress ვერსიის კოოდი - რომელი wordpress ი აყენია რომ ვნახოთ.
+<?php bloginfo(‘version’); ?>
+
+Wordpress ბლოგის დასახელება
+<?php bloginfo(‘name’); ?>
+
+Wordpress ბლოგის განმარტება
+<?php bloginfo(‘description’); ?>
+
+ბლოგის მთავარი გვერდის ბმული
+<?php bloginfo(‘url’); ?>
+
+დიზაინისთვის დამზადებული style.css ის გამოძAხების ბმული.
+<?php bloginfo(‘stylesheet_url’); ?>
+
+დიზაინის ფაილების ბმული.
+<?php bloginfo(‘template_directory’); ?>
+
+
+
+WordPress ფაილების გამოძახების კოდი
+
+Header.php ის ფაილს გამოიძახებს
+<?php get_header(‘’); ?>
+
+Sidebar.php ის ფაილს გამოიძახებს
+<?php get_sidebar(‘’); ?>
+
+Footer.php ის ფაილს გამოიძახებს
+<?php get_footer(‘’); ?>
+
+Comments.php ის ფაილს გამოიძახებს
+<?php comments_template(); ?>
+
+
+დიზაინში სხვა PHP ფაილის გამოძახება
+<?php include( “file.php” );?>
+
+WordPress ფაილების სწორად მუშაობისთვის საჭირო კოდები.
+
+header.php içerisinde </head> tagından önce eklenecek kod parçası<?php wp_head(); ?>
+
+footer.php dosyasında </head> tagından önce eklenecek kod parçası
+<?php wp_footer(); ?>
+
+Dipnot : Bu kodlar aynı zamanda temanızda üst Admin barın aktif olmasını sağlamaktadır.
+WordPress tema içerisindeki döngülere ait kodlar
+
+
+WordPress ნაწერებთან და გვერდებთან დაკავშირებული კოდები.
+
+კატეგორიის ჩამონათვალის კოდი
+<?php wp_list_cats(‘title_li=’); ?>
+
+გვერდების ჩამონათვალის კოდი
+<?php wp_list_pages(‘title_li=’); ?>
+
+არქივების ჩამონათვალის კოდი
+<?php wp_get_archives(‘’) ?>
+
+ნაწერის ID
+<?php the_ID(); ?>
+
+ნაწერის სათაური
+<?php the_title(‘’); ?>
+
+ნაწერის ბმული
+<?php the_permalink(‘’) ?>
+
+ნაწერის კატეგორია და ბმული
+<?php the_category(‘, ‘) ?>
+
+ნაწერის თარიღი და საათი
+Tarih : <?php the_time(‘F j Y’); ?> — Saat : <?php the_time(‘H:i:s’); ?>
+
+ნაწერის ჩვენება
+<?php the_content(‘’); ?>
+
+ნაწერის რედაკტირების კოდი
+<?php edit_post_link(); ?>
+
+ნაწერებისთვის კომენტარის ჩვენების კოდი.
+<?php comments_popup_link(__(‘კომენტარის გარეშე’), __(‘1 კომენტარი არის გაკეთებული’), __(‘% კომენტარი არის გაკეთებული’), ‘’, __(‘კომენტარი გათიშულია’)); ?>
+
+ნაწერის წაკითხვის რაოდენობის ჩვენების კოდი * Plugin ი იქნება საჭირო.
+<?php if(function_exists(‘the_views’)) { the_views(); } ?>
+
+ნაწერების გვერდებათ ჩამოთვლის კოდი
+<?php wp_pagenavi(); ?>
+
+
+WordPress ავტორთან დაკავშირებული კოდები
+
+ავტორის სახელი
+<?php the_author(‘’); ?>
+
+ავტორის ბიოგრაფია
+<?php the_author_description(‘’); ?>
+
+ავტორის არსებული ნაწერების ჩვენების კოდი
+<?php the_author_posts(‘’);?>
+
+ავტორის author გვერდი
+<?php the_author_link(‘’);?>
+
+ავტორის ვებ-საიტის ჩვენების კოდი
+<?php the_author_url(‘’); ?>
+
+ავტორის მეილის ჩვენების კოდი
+<?php the_author_email(‘’);?>
+
+ძიებისთვის გამოსაყენებელი კოდი.
+<form method=”get” id=”searchform” action=”<?php bloginfo(‘url’); ?>”><input class=”searchbg” type=”text” name=”s” id=”s” onfocus=”if (this.value == ‘ძიება …’) {this.value = ‘’;}” onblur=”if (this.value == ‘’) {this.value = ‘ძიება …’;}” /><input class=”button” type=”button” value=”” /></form>
+
+
+ნაწერის loop კოდი - ამის გამოყენებით ვაჩვენებთ ჩვენს გვერძე ჩანაწერს.
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php the_category(', ') ?>
+<a href="<?php the_permalink('') ?>"><?php the_title(''); ?></a>
+<?php the_time('F j Y'); ?> <?php the_time('H:i:s'); ?>
+<?php the_author_link('');?>
+<?php endwhile; else: ?>
+<?php endif; ?>
+
+
+
+კოდების პირდაპირ ჩაწერით შეგიძლიათ გამოიყენოთ თქვენ საიტზე . 
+
+დრო და დრო განვაახლებ შემოწმება არ დაგავიწყდეთ.
